@@ -56,12 +56,12 @@ resource "azurerm_network_security_group" "nsg" {
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "example" {
+resource "azurerm_network_interface_security_group_association" "nicsga" {
   network_interface_id      = azurerm_network_interface.nic.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
-resource "azurerm_virtual_machine" "example" {
+resource "azurerm_virtual_machine" "vm" {
   name                  = var.virtual_machine_name
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
@@ -72,10 +72,10 @@ resource "azurerm_virtual_machine" "example" {
   delete_data_disks_on_termination = true
 
   storage_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts"
-    version   = "latest"
+    publisher = var.storage_image_reference_publisher
+    offer     = var.storage_image_reference_offer
+    sku       = var.storage_image_reference_sku
+    version   = var.storage_image_reference_version
   }
 
   storage_os_disk {

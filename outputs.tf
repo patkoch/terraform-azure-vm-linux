@@ -1,5 +1,5 @@
 output "virtual_machine_name" {
-  value = azurerm_virtual_machine.example.name
+  value = azurerm_virtual_machine.vm.name
 }
 
 output "virtual_machine_public_ip" {
