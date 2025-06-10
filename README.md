@@ -102,11 +102,5 @@ Destroy the Ubuntu VM on Azure executing:
 terraform destroy
 ```
 
-Defining a naming convention:
-
-Defining a naming convention for a resource group:
-https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming#example-names
-
-
-get the images
+Confirm the destruction with entering "yes".
 
